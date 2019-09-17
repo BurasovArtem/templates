@@ -86,24 +86,156 @@
 	}
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Регистрация</title>
+	<meta charset="utf-8">
 
-<form action="signup.php" method="POST">
-	<strong>Ваш логин</strong>
-	<input type="text" name="login" value="<?php echo @$data['login']; ?>"><br/>
-
-	<strong>Ваш Email</strong>
-	<input type="email" name="email" value="<?php echo @$data['email']; ?>"><br/>
-
-	<strong>Ваш пароль</strong>
-	<input type="password" name="password" value="<?php echo @$data['password']; ?>"><br/>
-
-	<strong>Повторите пароль</strong>
-	<input type="password" name="password_2" value="<?php echo @$data['password_2']; ?>"><br/>
-
-	<strong><?php captcha_show(); ?></strong>
-	<input type="text" name="captcha" ><br/>
-
-	<button type="submit" name="do_signup">Регистрация</button>
-	<br><br><br>
-	<a href="login.php">авторизируйтесь</a>
-</form>
+</head>
+<body>
+	<style type="text/css">
+		body {
+			background-color: #EDEEF0;
+		}
+		a {
+			text-align: center;
+		}
+		.form_regist {
+			border-radius: 20px;
+			margin-top: 100px;
+			margin-left: 25%;
+			background-color: #AC9B91;
+			width: 50vw;
+			height: 450px;
+		}
+		.form_regist button {
+			height: 50px;
+			border-radius: 20px;
+			border: none;
+			background-color: #D5B352;
+			position: absolute;
+			margin-left: 2vw;
+			width: 30vw;
+		}
+		.form_regist button:hover {
+			background-color: #D5FF59;
+		}
+		.form_regist input {
+			border-radius: 10px;
+			border: none;
+			padding-left: 10px;
+			width: 20vw;
+			height: 30px;
+		}
+		table {
+			margin-left: 5vw;
+			border-spacing: 20px;
+		}
+		td {
+			height: 40px;
+		}
+		.singlup_auth {
+			position: absolute;
+			width: 35vw;
+		}
+		a:link {text-decoration: none; color: blue;} 
+   		a:visited {text-decoration: none; color: blue;} 
+   		a:active {text-decoration: none; color: blue;}
+   		a:hover {text-decoration: none; color: blue;} 
+		@media (max-width: 600px) {
+			.form_regist {
+				width: 100%;
+				height: 500px;
+				margin-left: 0;
+				border-radius: 0;
+				margin-top: 0;
+				user-select: none;
+			}
+			.form_regist button {
+				height: 50px;
+				border-radius: 20px;
+				border: none;
+				background-color: #D5B352;
+				position: absolute;
+				margin-left: 2vw;
+				width: 70vw;
+			}
+			.singlup_auth {
+				width: 73vw;
+			}
+		}
+		@media (max-width: 700px) {
+			.form_regist input {
+				margin-left: -25px;
+			}
+		}
+		/*@media (max-width: 800px) {
+			.singlup_auth {
+				position: absolute;
+				margin-left: 8vw;
+			}
+		}*/
+		@media (max-width: 600px) {
+			.form_regist input {
+				margin-left: 20px;
+				width: 40vw;
+			}
+		}
+	</style>
+	<form action="signup.php" method="POST" class="form_regist row">
+		<table>
+			<tr>
+				<td>
+					<strong>Ваш логин</strong>
+				</td>
+				<td>
+					<input type="text" name="login" value="<?php echo @$data['login']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Ваш Email</strong>
+				</td>
+				<td>
+					<input type="email" name="email" value="<?php echo @$data['email']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Ваш пароль</strong>
+				</td>
+				<td>
+					<input type="password" name="password" value="<?php echo @$data['password']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Повторите пароль</strong>
+				</td>
+				<td>
+					<input type="password" name="password_2" value="<?php echo @$data['password_2']; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong class="block_inline"><?php captcha_show(); ?></strong>
+				</td>
+				<td>
+					<input type="text" name="captcha" >
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="submit" name="do_signup" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Регистрация</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="login.php" class="singlup_auth col-xs-12 col-sm-12 col-md-12 col-lg-12">Авторизируйтесь</a>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
